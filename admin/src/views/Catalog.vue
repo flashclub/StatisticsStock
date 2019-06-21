@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>分类列表</h1>
     <el-table
       :data='items'
       border
@@ -22,6 +23,11 @@
             size="small"
             @click='$router.push(`editcatalog/${scope.row._id}`)'
           >编辑</el-button>
+          <el-button
+            type="text"
+            size="small"
+            @click='deleteData(scope.row)'
+          >删除</el-button>
         </template></el-table-column>
     </el-table>
   </div>
@@ -38,6 +44,27 @@ export default {
     this.fetch();
   },
   methods: {
+    async deleteData(row){
+      console.log(row);
+      
+      this.$confirm(`此操作将永久删除${row.name}文件, 是否继续?`, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(async () => {
+          const res = await this.$http.delete(`categories/${row._id}`);
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+          this.fetch()
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+    },
     async fetch() {
       const res = await this.$http.get("categories");
       this.items = res.data;

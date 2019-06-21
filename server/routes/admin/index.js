@@ -17,6 +17,11 @@ module.exports = app => {
     const model = await Category.findByIdAndUpdate(req.params.id, req.body);
     res.send(model);
   });
+  router.delete("/categories/:id", async (req, res) => {
+    //通过id找到并修改数值
+    const model = await Category.findByIdAndDelete(req.params.id, req.body);
+    res.send({success:true});
+  });
   router.get("/categories/:id", async (req, res) => {
     //获取对应id的值
     const model = await Category.findById(req.params.id);
