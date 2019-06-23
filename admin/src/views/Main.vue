@@ -1,18 +1,8 @@
 <template>
   <el-container style="height: 100vh; ">
-    <el-aside
-      width="200px"
-      style="background-color: rgb(238, 241, 246)"
-    >
-      <el-menu
-        router
-        :default-openeds="['1', '3']"
-      >
-        <el-button
-          style="width:100%"
-          type="primary"
-          @click="$router.push('/')"
-        >回到首页</el-button>
+    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+      <el-menu router :default-openeds="['1', '3']">
+        <el-button style="width:100%" type="primary" @click="$router.push('/')">回到首页</el-button>
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>用户管理</template>
           <el-menu-item-group>
@@ -27,10 +17,7 @@
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
-          <i
-            class="el-icon-setting"
-            style="margin-right: 15px"
-          ></i>
+          <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>查看</el-dropdown-item>
             <el-dropdown-item>新增</el-dropdown-item>

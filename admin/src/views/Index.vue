@@ -21,16 +21,16 @@
 export default {
   data() {
     return {
-      items:[]
+      items: []
     };
   },
   mounted() {},
-  created(){
+  created() {
     this.fetch();
   },
   methods: {
-    async fetch(){
-      const res = await this.$http.get('userinfo')
+    async fetch() {
+      const res = await this.$http.get("userinfo");
       this.items = res.data;
     }
   }

@@ -1,37 +1,13 @@
 <template>
   <div>
     <h1>分类列表</h1>
-    <el-table
-      :data='items'
-      border
-      style="width:100%"
-    >
-      <el-table-column
-        prop='_id'
-        label='ID'
-      ></el-table-column>
-      <el-table-column
-        prop='parent.name'
-        label='上级分类'
-      ></el-table-column>
-      <el-table-column
-        prop='name'
-        label='分类名称'
-      ></el-table-column>
-      <el-table-column
-        prop='name'
-        label='操作'
-      ><template slot-scope="scope">
-          <el-button
-            type="text"
-            size="small"
-            @click='$router.push(`editcatalog/${scope.row._id}`)'
-          >编辑</el-button>
-          <el-button
-            type="text"
-            size="small"
-            @click='deleteData(scope.row)'
-          >删除</el-button>
+    <el-table :data='items' border style="width:100%">
+      <el-table-column prop='_id' label='ID'></el-table-column>
+      <el-table-column prop='parent.name' label='上级分类'></el-table-column>
+      <el-table-column prop='name' label='分类名称'></el-table-column>
+      <el-table-column prop='name' label='操作'><template slot-scope="scope">
+          <el-button type="text" size="small" @click='$router.push(`editcatalog/${scope.row._id}`)'>编辑</el-button>
+          <el-button type="text" size="small" @click='deleteData(scope.row)'>删除</el-button>
         </template></el-table-column>
     </el-table>
   </div>
