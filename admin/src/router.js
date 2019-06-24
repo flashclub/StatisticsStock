@@ -7,6 +7,7 @@ import Catalog from "./views/Catalog.vue";
 import EditCatalog from "./views/EditCatalog.vue";
 import Item from "./views/Item.vue";
 import EditItem from "./views/EditItem.vue";
+import Login from "./views/Login.vue";
 
 Vue.use(Router);
 
@@ -32,7 +33,7 @@ export default new Router({
         {
           path: "/editcatalog/:id",
           component: EditCatalog,
-          props:true
+          props: true
         },
         {
           path: "/editcatalog",
@@ -47,6 +48,9 @@ export default new Router({
           component: EditItem
         },
       ]
+    }, {
+      path: "/login",
+      component: Login
     }
   ]
 });

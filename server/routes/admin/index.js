@@ -9,7 +9,7 @@ module.exports = app => {
   });
   router.post("/", async (req, res) => {
     //建立一条数据
-    const model = await Category.create(req.body)
+    const model = await Category.create(req.body);
     res.send(model);
   });
   router.put("/:id", async (req, res) => {
@@ -43,4 +43,18 @@ module.exports = app => {
     req.model = require(`../../models/${modelName}`)
     next()
   }, router);
+  app.post("/admin/api/login", async (req, res) => {
+    const AdminUser = require("../../models/AdminUser");
+    const { username, password } = req.body;
+    const user = await AdminUser.findOne({ username })
+    if (!user) {
+      return res.status(422).send({
+        message: '用户不存在'
+      })
+    } else {
+
+    }
+    const jwt = require("jsonwebtoken");
+    res.send("ok");
+  });
 };

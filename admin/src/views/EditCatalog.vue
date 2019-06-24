@@ -53,8 +53,7 @@ export default {
       this.$router.push("/cataloglist");
     },
     async fetch() {
-      const res = await this.$http.get(`rest/categories/${this.id}`);
-
+      const res = await this.$http.get(`categories/${this.id}`);
       this.model = res.data;
     },
     async fetchParents() {
