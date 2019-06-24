@@ -7,30 +7,40 @@ module.exports = app => {
     const model = await Userlist.find().limit(10);
     res.send(model);
   });
-  router.post("/categories", async (req, res) => {
+  router.post("/", async (req, res) => {
     //建立一条数据
     const model = await Category.create(req.body)
     res.send(model);
   });
-  router.put("/categories/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     //通过id找到并修改数值
-    const model = await Category.findByIdAndUpdate(req.params.id, req.body);
+    const model = await req.model.findByIdAndUpdate(req.params.id, req.body);
     res.send(model);
   });
-  router.delete("/categories/:id", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     //通过id找到并修改数值
-    const model = await Category.findByIdAndDelete(req.params.id, req.body);
+    const model = await req.model.findByIdAndDelete(req.params.id, req.body);
     res.send({success:true});
   });
-  router.get("/categories/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     //获取对应id的值
-    const model = await Category.findById(req.params.id);
+    const model = await req.model.findById(req.params.id);
     res.send(model);
   });
-  router.get("/categories", async (req, res) => {
+  router.get("/", async (req, res) => {
     //
-    const model = await Category.find().populate('parent').limit(10);
+    let queryOptions = {}
+    if (req.model.modelName == 'Category') {
+      queryOptions.populate = 'parent';
+    } 
+    const model = await req.model.find().setOptions(queryOptions).limit(10);
     res.send(model);
   });
-  app.use("/admin/api", router);
+  app.use("/admin/api/rest/:resource",async (req,res,next)=>{
+    const modelName = require('inflection').classify(req.params.resource)
+    console.log(modelName);
+    
+    req.model = require(`../../models/${modelName}`)
+    next()
+  }, router);
 };

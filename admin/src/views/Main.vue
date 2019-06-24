@@ -10,6 +10,10 @@
             <el-menu-item index="/cataloglist">分类列表</el-menu-item>
             <el-menu-item index="/editcatalog">新建分类</el-menu-item>
           </el-menu-item-group>
+          <el-menu-item-group>
+            <el-menu-item index="/itemslist">物品列表</el-menu-item>
+            <el-menu-item index="/edititems">新建物品</el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
       </el-menu>
     </el-aside>

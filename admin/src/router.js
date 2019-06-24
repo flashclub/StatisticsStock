@@ -5,6 +5,8 @@ import Index from "./views/Index.vue";
 import Userlist from "./views/Userlist.vue";
 import Catalog from "./views/Catalog.vue";
 import EditCatalog from "./views/EditCatalog.vue";
+import Item from "./views/Item.vue";
+import EditItem from "./views/EditItem.vue";
 
 Vue.use(Router);
 
@@ -19,13 +21,13 @@ export default new Router({
           path: "",
           component: Index
         },
+            {
+              path: "/userlist",
+              component: Userlist
+            },
         {
           path: "/cataloglist",
           component: Catalog
-        },
-        {
-          path: "/userlist",
-          component: Userlist
         },
         {
           path: "/editcatalog/:id",
@@ -35,7 +37,15 @@ export default new Router({
         {
           path: "/editcatalog",
           component: EditCatalog
-        }
+        },
+        {
+          path: "/itemslist",
+          component: Item
+        },
+        {
+          path: "/edititems",
+          component: EditItem
+        },
       ]
     }
   ]
