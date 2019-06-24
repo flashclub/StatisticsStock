@@ -54,7 +54,6 @@ export default {
     },
     async fetch() {
       const res = await this.$http.get(`categories/${this.id}`);
-
       this.model = res.data;
     },
     async fetchParents() {

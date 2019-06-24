@@ -9,7 +9,7 @@ module.exports = app => {
   });
   router.post("/categories", async (req, res) => {
     //建立一条数据
-    const model = await Category.create(req.body)
+    const model = await Category.create(req.body);
     res.send(model);
   });
   router.put("/categories/:id", async (req, res) => {
@@ -20,7 +20,7 @@ module.exports = app => {
   router.delete("/categories/:id", async (req, res) => {
     //通过id找到并修改数值
     const model = await Category.findByIdAndDelete(req.params.id, req.body);
-    res.send({success:true});
+    res.send({ success: true });
   });
   router.get("/categories/:id", async (req, res) => {
     //获取对应id的值
@@ -29,8 +29,25 @@ module.exports = app => {
   });
   router.get("/categories", async (req, res) => {
     //
-    const model = await Category.find().populate('parent').limit(10);
+    const model = await Category.find()
+      .populate("parent")
+      .limit(10);
     res.send(model);
   });
   app.use("/admin/api", router);
+
+  app.post("/admin/api/login", async (req, res) => {
+    const AdminUser= require("../../models/AdminUser");
+    const { username, password } = req.body;
+    const user = await AdminUser.findOne({username})
+    if (!user) {
+      return res.status(422).send({
+        message:'用户不存在'
+      })
+    } else {
+
+    }
+    const jwt = require("jsonwebtoken");
+    res.send("ok");
+  });
 };
