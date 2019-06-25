@@ -7,8 +7,10 @@ import Catalog from "./views/Catalog.vue";
 import EditCatalog from "./views/EditCatalog.vue";
 import Item from "./views/Item.vue";
 import EditItem from "./views/EditItem.vue";
-import Login from "./views/Login.vue";
+import AdminUser from "./views/AdminUser.vue";
+import EdigAdmin from "./views/EdigAdmin.vue";
 
+import Login from "./views/Login.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -19,13 +21,13 @@ export default new Router({
       component: Main,
       children: [
         {
-          path: "",
+          path: "/index",
           component: Index
         },
-            {
-              path: "/userlist",
-              component: Userlist
-            },
+        {
+          path: "/userlist",
+          component: Userlist
+        },
         {
           path: "/cataloglist",
           component: Catalog
@@ -47,8 +49,22 @@ export default new Router({
           path: "/edititems",
           component: EditItem
         },
+        {
+          path: "/admin_users/edit",
+          component: EdigAdmin
+        },
+        {
+          path: "/admin_users/edit/:id",
+          component: EdigAdmin,
+          props:true
+        },
+        {
+          path: "/admin_users/list",
+          component: AdminUser
+        }
       ]
-    }, {
+    },
+    {
       path: "/login",
       component: Login
     }

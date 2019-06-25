@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100vh; ">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu router :default-openeds="['1', '3']">
+      <el-menu router  >
         <el-button style="width:100%" type="primary" @click="$router.push('/')">回到首页</el-button>
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>用户管理</template>
@@ -13,6 +13,13 @@
           <el-menu-item-group>
             <el-menu-item index="/itemslist">物品列表</el-menu-item>
             <el-menu-item index="/edititems">新建物品</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title"><i class="el-icon-message"></i>用户管理</template>
+          <el-menu-item-group>
+            <el-menu-item index="/admin_users/edit">新建分类</el-menu-item>
+            <el-menu-item index="/admin_users/list">分类列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

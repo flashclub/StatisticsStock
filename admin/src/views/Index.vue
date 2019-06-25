@@ -30,8 +30,8 @@ export default {
   },
   methods: {
     async fetch() {
-      const res = await this.$http.get("userinfo");
-      this.items = res.data;
+      // const res = await this.$http.get("userinfo");
+      // this.items = res.data;
     }
   }
 };
