@@ -30,44 +30,37 @@ module.exports = app => {
     const model = await req.model.findById(req.params.id);
     res.send(model);
   });
-  router.get(
-    "/",
-    async (req, res, next) => {
-      console.log(req.headers.authorization);
-
-      const token = String(req.headers.authorization || "")
-        .split(" ")
-        .pop();
-      console.log(token);
-      console.log(tokenData);
-      assert(token, 401, "请提供jwttoken");
-      const { id } = jwt.verify(token, app.get("secret"));
-      req.user = await AdminUser.findById(id);
-      assert(req.user, 401, "请先登录");
-      // const user = await
-      await next();
-    },
-    async (req, res) => {
-      //
-      let queryOptions = {};
-      if (req.model.modelName == "Category") {
-        queryOptions.populate = "parent";
-      }
-      const model = await req.model
-        .find()
-        .setOptions(queryOptions)
-        .limit(10);
-      res.send(model);
+  router.get("/", async (req, res) => {
+    //
+    let queryOptions = {};
+    if (req.model.modelName == "Category") {
+      queryOptions.populate = "parent";
     }
-  );
+    const model = await req.model
+      .find()
+      .setOptions(queryOptions)
+      .limit(10);
+    res.send(model);
+  });
+  //  登录校验中间件
+  const authMiddleware = async (req, res, next) => {
+    const token = String(req.headers.authorization || "")
+      .split(" ")
+      .pop();
+    assert(token, 401, "请提供jwt token");
+
+    const { id } = jwt.verify(token, app.get("secret"));
+    assert(id, 401, "无效的jwt token");
+
+    req.user = await AdminUser.findById(id);
+    assert(req.user, 401, "请先登录");
+    await next();
+  };
   app.use(
     "/admin/api/rest/:resource",
+    authMiddleware,
     async (req, res, next) => {
-      console.log(req.params.resource);
-
       const modelName = require("inflection").classify(req.params.resource);
-      console.log(modelName);
-
       req.model = require(`../../models/${modelName}`);
       next();
     },
@@ -77,13 +70,14 @@ module.exports = app => {
     const { username, password } = req.body;
     // 1.根据用户名找用户
     const user = await AdminUser.findOne({ username }).select("+password");
+    console.log("73", user);
+
     assert(user, 422, "用户不存在");
     // 2.校验密码
     const isValid = require("bcrypt").compareSync(password, user.password);
     assert(isValid, 422, "密码错误");
 
     // 3.返回token
-    const jwt = require("jsonwebtoken");
     const token = jwt.sign({ id: user._id }, app.get("secret"));
 
     res.send({ token });

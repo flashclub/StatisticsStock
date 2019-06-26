@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100vh; ">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu router  >
+      <el-menu router unique-opened  >
         <el-button style="width:100%" type="primary" @click="$router.push('/')">回到首页</el-button>
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>用户管理</template>
