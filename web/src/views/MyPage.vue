@@ -68,6 +68,7 @@ export default {
           amount3: 15
         },
         {
+          agency: "fuchang",
           id: "12987126",
           name: "王小虎",
           amount1: "539",
@@ -75,6 +76,7 @@ export default {
           amount3: 15
         },
         {
+          agency: "fuchang",
           id: "12987126",
           name: "王小虎",
           amount1: "539",
@@ -82,6 +84,7 @@ export default {
           amount3: 15
         },
         {
+          agency: "fuchang",
           id: "12987126",
           name: "王小虎",
           amount1: "539",
@@ -89,15 +92,35 @@ export default {
           amount3: 15
         }
       ],
+      arr: []
     };
   },
-  mounted() {},
+  mounted() {
+    this.resetData()
+  },
   methods: {
+    resetData() {
+      let target = 0;
+      this.tableData.forEach((ele, index) => {
+        if (!index) {
+          this.arr.push(0);
+        } else if (this.tableData[index - 1].agency == this.tableData[index].agency) {
+          this.arr[target]++
+          this.arr.push(0)
+          console.log(this.arr[target]);
+          
+        } else{
+          target = index;
+        }
+      });
+      console.log(this.arr);
+      
+    },
+
     objectSpanMethod({ row, column, rowIndex, columnIndex }) {
       if (!columnIndex) {
-        console.log(row.agency);
+        // console.log(row.agency);
       }
-      
       if (columnIndex === 0) {
         if (rowIndex % 3 === 0) {
           return {
