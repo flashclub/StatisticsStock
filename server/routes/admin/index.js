@@ -1,8 +1,8 @@
 module.exports = app => {
   const express = require("express");
+  const router = express.Router();
   const jwt = require("jsonwebtoken");
   const assert = require("http-assert");
-  const router = express.Router();
   const Userlist = require("../../models/Userlist");
   const AdminUser = require("../../models/AdminUser");
 
