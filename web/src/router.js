@@ -17,10 +17,9 @@ export default new Router({
     },
     {
       path: "/",
-      name: "Main",
       component: Main,
       children:[
-        { path: '', component: MyPage},
+        { path: '', name: "index", component: MyPage},
       ]
     },
 

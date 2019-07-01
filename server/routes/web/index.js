@@ -44,7 +44,6 @@ module.exports = app => {
     assert(user, 422, "用户不存在");
 
     const isValid = require("bcrypt").compareSync(password, user.password);
-    console.log(password, user.password, isValid);
     assert(isValid, 422, "密码错误");
 
     const token = jwt.sign({ id: user._id }, app.get("web-secret"));
