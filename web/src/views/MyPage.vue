@@ -158,12 +158,12 @@ export default {
           return {
             rowspan: this.arr[rowIndex],
             colspan: 1
-          };
+          }
         } else {
           return {
-            rowspan: 0,
-            colspan: 0
-          };
+              rowspan: 0,
+              colspan: 0
+            };
         }
       }      
       return;
