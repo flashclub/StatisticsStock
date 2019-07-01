@@ -8,6 +8,7 @@ import MyPage from "./views/MyPage.vue";
 Vue.use(Router);
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: "/login",

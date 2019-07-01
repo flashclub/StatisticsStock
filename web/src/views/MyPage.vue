@@ -131,9 +131,8 @@ export default {
       console.log(index, row);
     },
     async getDataFn(){
-      const res = await this.$http.get('subscription_infos/userinfo');
+      const res = await this.$http.get('rest/subscription_infos/userinfo');
       this.tableData.push(...res.data);
-      console.log(this.tableData);
       this.resetData()
     },
     resetData() {

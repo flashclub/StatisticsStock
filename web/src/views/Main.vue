@@ -29,6 +29,7 @@
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>设置</el-dropdown-item>
               <el-dropdown-item>资料</el-dropdown-item>
+              <el-dropdown-item @click="logoutFn">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -47,6 +48,14 @@ export default {
   },
   mounted() {},
   methods: {
+    async logoutFn(){
+      const res = await this.$http('logout')
+      try {
+        this.$router.push('/login')
+      } catch (error) {
+        
+      }
+    },
     handleCommand(command) {
       this.$message("click on item " + command);
     }
