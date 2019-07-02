@@ -1,6 +1,7 @@
 module.exports = options => {
   return async (req, res, next) => {
-    const WebUser = require("../models/web/WebUser");
+    
+    const WebUser = require("../models/web/"+options.whichModels);
     const assert = require("http-assert");
     const jwt = require("jsonwebtoken");
     const token = String(req.headers.authorization || "")

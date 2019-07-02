@@ -10,17 +10,15 @@ module.exports = app => {
   //  获取资源中间件
   const resourceMiddleware = require("../../middleware/resource");
 
-  
-
   app.use(
     "/web/api/rest/:resource",
-    authMiddleware(),
+    authMiddleware({ whichModels: "WebUser" }),
     resourceMiddleware(),
     router
   );
   router.get("/userinfo", async (req, res) => {
     console.log(req.app === app);
-    
+
     const model = await req.model.find();
     const sendData = {
       message: "success",

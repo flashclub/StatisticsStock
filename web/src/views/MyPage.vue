@@ -51,16 +51,20 @@
           width="90%"
           center>
           <div>
-            <el-select v-model="addvalue" @change='changeFn' placeholder="请选择">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
+            
             <el-table stripe :data="addData" border style="width: 100%; margin-top: 20px">
-              <el-table-column prop="broker" label="券商"></el-table-column>
+              <el-table-column prop="broker" label="券商">
+                <template slot-scope="scope">
+                  <el-select v-model="addvalue" @change='changeFn' placeholder="请选择">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
+                    </el-option>
+                  </el-select>
+                </template>
+              </el-table-column>
               <el-table-column prop="account" label="账户"></el-table-column>
               <el-table-column prop="code" label="代码"></el-table-column>
               <el-table-column prop="company" label="公司名称"></el-table-column>
@@ -106,7 +110,7 @@ export default {
       tableData: [],
       arr: [],
       centerDialogVisible: false,
-      addData:[]
+      addData:[{}]
     };
   },
   mounted() {
@@ -132,8 +136,13 @@ export default {
     },
     async getDataFn(){
       const res = await this.$http.get('rest/subscription_infos/userinfo');
-      this.tableData.push(...res.data);
-      this.resetData()
+      try {
+        this.tableData.push(...res.data);
+        this.resetData()
+        
+      } catch (error) {
+        
+      }
     },
     resetData() {
       let target = 0;
