@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04234fb5-76c6-4fc4-b3f1-ce5c124d2051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../server/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/middleware/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/models/web/SubscriptionInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/models/web/SubscriptionInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/routes/web/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/routes/web/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/src/views/MyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/MyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/getdata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,12 +17,22 @@
         <entry file="file://$PROJECT_DIR$/getdata.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="38" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ipo-scheduled-items</find>
+      <find>1912</find>
+      <find>str</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -47,11 +55,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="120" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1927" />
+    <option name="y" value="-66" />
     <option name="width" value="1060" />
-    <option name="height" value="1000" />
+    <option name="height" value="1324" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -74,6 +82,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/getdata.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -143,24 +152,27 @@
       <updated>1562065022539</updated>
       <workItem from="1562065024053" duration="1493000" />
       <workItem from="1562066988983" duration="1747000" />
-      <workItem from="1562068913190" duration="203000" />
+      <workItem from="1562068913190" duration="522000" />
+      <workItem from="1562118338957" duration="1987000" />
+      <workItem from="1562122511525" duration="733000" />
+      <workItem from="1562136237918" duration="9025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3566000" />
+    <option name="totallyTimeSpent" value="15507000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="1927" y="-66" width="1060" height="1324" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32929516" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25643224" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977974" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -184,13 +196,16 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1562069075505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1562146654496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/getdata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="38" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
