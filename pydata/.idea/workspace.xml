@@ -16,11 +16,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="625">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="14" />
               <folding>
-                <element signature="e#0#16#0" expanded="true" />
+                <element signature="e#14#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pymongo/helpers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4860">
+              <caret line="193" column="55" selection-start-line="193" selection-start-column="6" selection-end-line="193" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -55,11 +64,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1927" />
-    <option name="y" value="-66" />
-    <option name="width" value="1060" />
-    <option name="height" value="1324" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="134" />
+    <option name="y" value="-9" />
+    <option name="width" value="1598" />
+    <option name="height" value="1110" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -156,32 +165,32 @@
       <workItem from="1562118338957" duration="1987000" />
       <workItem from="1562122511525" duration="733000" />
       <workItem from="1562136237918" duration="9025000" />
+      <workItem from="1562203874902" duration="14447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15507000" />
+    <option name="totallyTimeSpent" value="29954000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1927" y="-66" width="1060" height="1324" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.165" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25643224" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32929516" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34911895" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32929516" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32929516" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -196,15 +205,22 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1562146654496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1562226973923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pymongo/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4860">
+          <caret line="193" column="55" selection-start-line="193" selection-start-column="6" selection-end-line="193" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/getdata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="625">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="14" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#14#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
