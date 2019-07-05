@@ -16,9 +16,8 @@ module.exports = app => {
     resourceMiddleware(),
     router
   );
-  router.get("/userinfo", async (req, res) => {
-    console.log(req.app === app);
-
+  router.post("/basedata", async (req, res) => {
+    //  申购基础信息
     const model = await req.model.find();
     const sendData = {
       message: "success",
@@ -26,6 +25,17 @@ module.exports = app => {
     };
     res.send(sendData);
   });
+  router.get("/userinfo", async (req, res) => {
+    console.log(req.app === app);
+    //  用户录入的所有信息
+    const model = await req.model.find().limit(10);
+    const sendData = {
+      message: "success",
+      data: model
+    };
+    res.send(sendData);
+  });
+
   app.post("/web/api/regisitor", async (req, res) => {
     const { username, password } = req.body;
     const user = await WebUser.findOne({ username });

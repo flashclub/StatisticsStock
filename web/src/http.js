@@ -34,7 +34,7 @@ http.interceptors.request.use(
             message = "账号或密码错误";
           break;
           default:
-            message = "接口报错" + err.response.data.message + err.response.status;
+            message = "接口报错："+err.response.status + err.response.data.message ;
           break;
         }
         Vue.prototype.$message({
