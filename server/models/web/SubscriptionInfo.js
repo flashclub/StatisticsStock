@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// 用户打新数据
 const schema = new mongoose.Schema({
   username: { type: String },
   data:{type:Array},

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// 用户信息：账号和密码
 const schema = new mongoose.Schema({
   username: { type: String },
   password: {
