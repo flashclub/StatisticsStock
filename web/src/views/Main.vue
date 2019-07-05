@@ -2,63 +2,25 @@
   <div>
     <el-container>
       <el-header class='header'>
-        <div>
-          <el-dropdown @command="handleCommand">
-            <span class="el-dropdown-link">
-              下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="a">黄金糕</el-dropdown-item>
-              <el-dropdown-item command="b">狮子头</el-dropdown-item>
-              <el-dropdown-item command="c">螺蛳粉</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-          <el-dropdown>
-            <span type="primary">
-              更多菜单<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>黄金糕</el-dropdown-item>
-              <el-dropdown-item>狮子头</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-          <el-dropdown>
-            <span type="primary">
-              我的<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>设置</el-dropdown-item>
-              <el-dropdown-item>资料</el-dropdown-item>
-              <el-dropdown-item @click="logoutFn">退出</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
+        <Nav></Nav>
       </el-header>
       <el-main>
         <router-view></router-view>
-
       </el-main>
     </el-container>
   </div>
 </template>
 <script>
+import Nav from './Nav'
 export default {
   data() {
     return {};
   },
+  components:{
+    Nav
+  },
   mounted() {},
   methods: {
-    async logoutFn(){
-      const res = await this.$http('logout')
-      try {
-        this.$router.push('/login')
-      } catch (error) {
-        
-      }
-    },
-    handleCommand(command) {
-      this.$message("click on item " + command);
-    }
   }
 };
 </script>

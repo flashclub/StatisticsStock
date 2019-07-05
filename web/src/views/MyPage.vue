@@ -16,6 +16,7 @@
           <el-table-column prop="account" label="账户"></el-table-column>
           <el-table-column prop="code" label="代码"></el-table-column>
           <el-table-column prop="company" label="公司名称"></el-table-column>
+          <el-table-column prop="handNumber" label="申购手数"></el-table-column>
           <el-table-column prop="listingDate" label="上市日期"></el-table-column>
           <el-table-column prop="publishPrice" label="发行价"></el-table-column>
           <el-table-column prop="marketValue" label="发行市值(亿)"></el-table-column>
@@ -87,7 +88,6 @@ export default {
       centerDialogVisible: false,
       addData: [{}],
       codeList: [],
-      handNumber: "",
       uploadData: {
         handNumber: "",
         code: ""
@@ -101,7 +101,16 @@ export default {
   methods: {
     confirmDialog(){
       console.log(this.uploadData);
-      
+      this.postDataFn();
+    },
+    async postDataFn(){
+      let postData = this.uploadData;
+      const res = await this.$http.post("rest/subscription_infos/subscribeinfo",postData);
+      console.log(res);
+      if (res.status === 1) {
+        this.centerDialogVisible = false;
+        this.getDataFn();
+      }
     },
     handleChange(){
 
@@ -140,18 +149,22 @@ export default {
     },
     async getDataFn() {
       const res = await this.$http.get("rest/subscription_infos/userinfo");
+      console.log(res);
+      
       try {
+        this.tableData = [];
         this.tableData.push(...res.data);
         this.resetData();
       } catch (error) {}
     },
     resetData() {
       let target = 0;
+      this.arr = [];
       this.tableData.forEach((ele, index) => {
         if (!index) {
-          this.arr.push(0);
+          this.arr.push(1);
         } else if (
-          this.tableData[index - 1].agency == this.tableData[index].agency
+          this.tableData[index - 1].broker == this.tableData[index].broker
         ) {
           !this.arr[target] && this.arr[target]++;
           this.arr[target]++;

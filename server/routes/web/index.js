@@ -1,9 +1,9 @@
 module.exports = app => {
   const express = require("express");
   const router = express.Router();
-  const WebUser = require("../../models/web/WebUser");
   const assert = require("http-assert");
-  const jwt = require("jsonwebtoken");
+  require("./loginOrOut")(app);
+  const StockData = require("../../models/web/StockData");
 
   //  登录校验中间件
   const authMiddleware = require("../../middleware/auth");
@@ -25,37 +25,62 @@ module.exports = app => {
     };
     res.send(sendData);
   });
-  router.get("/userinfo", async (req, res) => {
-    console.log(req.app === app);
-    //  用户录入的所有信息
-    const model = await req.model.find().limit(10);
+  router.post("/subscribeinfo", async (req, res) => {
+    //  上传用户申购信息
+    let insertData = {
+      username: req.user.username,
+      data: []
+    };
+    let userData = {
+      code: req.body.code,
+      handNumber: req.body.handNumber
+    };
+    // insertData.data.push(req.body);
+    const baseData = await StockData.findOne({ code: req.body.code });
+    let base2 = JSON.parse(JSON.stringify(baseData));
+    let newObj = Object.assign(userData, base2);
+    delete newObj._id;
+    insertData.data.push(newObj);
+
+    const model = await req.model.findOne({ username: req.user.username });
+    // assert(model,400,'没数据')
+    // console.log(model);
+    
+    if (model) {
+      console.log(model.data);
+      let finalData = model.data;
+      finalData.push(...insertData.data);
+      const models = await req.model.findOneAndUpdate(
+        { username: req.user.username },
+        { $set: { data: finalData }},{new:true}
+      );
+    } else {
+      // insertData.data.push(newObj);
+      const models = await req.model.create(insertData);
+    }
+
+    // const model = await req.model.create(insertData);
     const sendData = {
       message: "success",
-      data: model
+      data: [],
+      status: 1
     };
     res.send(sendData);
   });
+  //  用户录入的所有信息
+  router.get("/userinfo", async (req, res) => {
+    const model = await req.model.findOne({ username: req.user.username });
+    let sendData = {};
+    // console.log(model);
 
-  app.post("/web/api/regisitor", async (req, res) => {
-    const { username, password } = req.body;
-    const user = await WebUser.findOne({ username });
-    if (user) {
-      return res.status(400).send({ message: "fail" });
+    if (model) {
+      sendData.message = "success";
+      sendData.data = model.data;
+    } else {
+      sendData.message = "success";
+      sendData.data = [];
     }
-    const model = await WebUser.create(req.body);
-    res.send({ message: "success" });
-  });
-  app.post("/web/api/login", async (req, res) => {
-    const { username, password } = req.body;
-    const user = await WebUser.findOne({ username }).select("+password");
-
-    assert(user, 422, "用户不存在");
-
-    const isValid = require("bcrypt").compareSync(password, user.password);
-    assert(isValid, 422, "密码错误");
-
-    const token = jwt.sign({ id: user._id }, app.get("web-secret"));
-    res.send({ token });
+    res.send(sendData);
   });
 
   app.use(async (err, req, res, next) => {
