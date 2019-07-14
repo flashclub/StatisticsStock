@@ -19,9 +19,34 @@ module.exports = app => {
   router.post("/basedata", async (req, res) => {
     //  申购基础信息
     const model = await req.model.find();
+    let arr = [];       //处理后的选择列表
+    let brokers = [
+      {
+        value: "futu",
+        label: "富途"
+      },
+      {
+        value: "zunjia",
+        label: "尊嘉"
+      },
+      {
+        value: "huasheng",
+        label: "华盛"
+      },
+    ];   //券商
+    let accounts = [];  //账户
+    for (const key in model) {
+      if (model.hasOwnProperty(key)) {
+        const ele = model[key];
+        arr.push({
+          value: ele.code,
+          label: ele.company
+        });
+      }
+    }
     const sendData = {
       message: "success",
-      data: model
+      data: {companyList:arr,brokers,accounts}
     };
     res.send(sendData);
   });
