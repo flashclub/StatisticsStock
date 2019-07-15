@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      我的数据：总体账户
+      我的数据：所有账户
       <div>
         <el-select v-model="value" placeholder="请选择">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">

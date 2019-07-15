@@ -28,14 +28,6 @@ export default {
 .header {
   line-height: 60px;
   box-shadow: 0 0 10px #ccc;
-  div {
-    display: flex;
-    justify-content: flex-end;
-    span {
-      padding: 0 5px;
-      // border: 1px solid #ccc;
-    }
-  }
 }
 .title {
   height: 50px;

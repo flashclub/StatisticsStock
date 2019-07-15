@@ -4,11 +4,12 @@ import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
 import Main from "./views/Main.vue";
 import MyPage from "./views/MyPage.vue";
+import AllDatas from "./views/AllDatas.vue";
 
 Vue.use(Router);
 
 export default new Router({
-  mode:'history',
+  mode: "history",
   routes: [
     {
       path: "/login",
@@ -18,8 +19,9 @@ export default new Router({
     {
       path: "/",
       component: Main,
-      children:[
-        { path: '', name: "index", component: MyPage},
+      children: [
+        { path: "", name: "index", component: MyPage },
+        { path: "/datas", name: "datas", component: AllDatas }
       ]
     },
 
