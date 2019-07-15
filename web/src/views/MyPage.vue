@@ -37,16 +37,28 @@
         </el-table>
       </template>
       <template>
-        <el-dialog title="添加数据" :visible.sync="centerDialogVisible" width="50%" center>
+        <el-dialog title="添加数据" :visible.sync="centerDialogVisible" width="80%" center>
           <div>
             <el-form inline>
               <el-form-item label='申购公司'>
-
                 <el-select v-model="uploadData.code" placeholder="请选择公司">
-                  <el-option v-for="item in codeList" :key="item.value" :label="item.label" :value="item.value">
+                  <el-option v-for="item in baseData.companyList" :key="item.value" :label="item.label" :value="item.value">
                   </el-option>
                 </el-select>
               </el-form-item>
+              <el-form-item label='券商'>
+                <el-select v-model="uploadData.broker" placeholder="请选择券商">
+                  <el-option v-for="item in baseData.brokers" :key="item.value" :label="item.label" :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label='账户'>
+                <el-select v-model="uploadData.account" placeholder="请选择账户">
+                  <el-option v-for="item in baseData.accounts" :key="item.value" :label="item.label" :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              
               <el-form-item label='申购手数'>
                 <el-input-number  v-model="uploadData.handNumber" @change="handleChange" :min="1" :max="10"></el-input-number>
               </el-form-item>
@@ -68,18 +80,7 @@ export default {
   data() {
     return {
       options: [
-        {
-          value: "futu",
-          label: "富途"
-        },
-        {
-          value: "zunjia",
-          label: "尊嘉"
-        },
-        {
-          value: "huasheng",
-          label: "华盛"
-        }
+        
       ],
       value: "",
       addvalue: "",
@@ -87,10 +88,15 @@ export default {
       arr: [],
       centerDialogVisible: false,
       addData: [{}],
-      codeList: [],
+      companyList: [],
       uploadData: {
         handNumber: "",
         code: ""
+      },
+      baseData:{
+        brokers:[],
+        accounts:[],
+        companyList:[],
       }
     };
   },
@@ -116,18 +122,13 @@ export default {
 
     },
     async baseCode() {
-      const res = await this.$http.post("rest/stock_datas/basedata");
+      const res = await this.$http.post("rest/stock_datas/baseData");
       try {
         let datas = [];
         let resData = res.data;
-        console.log(res);
-        resData.forEach(ele => {
-          datas.push({
-            value: ele.code,
-            label: ele.company
-          });
-        });
-        this.codeList.push(...datas);
+        this.baseData.companyList.push(...(resData.companyList));
+        this.baseData.accounts.push(...(resData.accounts));
+        this.baseData.brokers.push(...(resData.brokers));
       } catch (error) {}
     },
     changeFn(e) {
