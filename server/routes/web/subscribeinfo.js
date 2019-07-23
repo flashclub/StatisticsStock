@@ -1,4 +1,4 @@
-module.exports = app => {
+module.exports = (app, a, b) => {
   // const express = ;
   const router = require("express").Router();
   //  登录校验中间件
@@ -7,8 +7,8 @@ module.exports = app => {
   const resourceMiddleware = require("../../middleware/resource");
   app.use(
     "/web/api/rest/:resource",
-    authMiddleware({ whichModels: "WebUser" }),
-    resourceMiddleware(),
+    a,
+    b,
     router
   );
   router.post("/subscribeinfo", async (req, res) => {

@@ -3,13 +3,17 @@ module.exports = app => {
   const router = express.Router();
   const assert = require("http-assert");
   require("./loginOrOut")(app);
-  require("./subscribeinfo")(app);
   const StockData = require("../../models/web/StockData");
 
   //  登录校验中间件
   const authMiddleware = require("../../middleware/auth");
   //  获取资源中间件
   const resourceMiddleware = require("../../middleware/resource");
+  require("./subscribeinfo")(
+    app,
+    authMiddleware({ whichModels: "WebUser" }),
+    resourceMiddleware()
+  );
   let brokers = [
     {
       value: "zunjia",
