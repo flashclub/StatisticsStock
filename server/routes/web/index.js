@@ -10,9 +10,7 @@ module.exports = app => {
   //  获取资源中间件
   const resourceMiddleware = require("../../middleware/resource");
   require("./subscribeinfo")(
-    app,
-    authMiddleware({ whichModels: "WebUser" }),
-    resourceMiddleware()
+    router
   );
   let brokers = [
     {
