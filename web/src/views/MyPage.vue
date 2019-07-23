@@ -53,7 +53,7 @@
                 </el-select>
               </el-form-item>
               <el-form-item label='账户'>
-                <el-select v-model="uploadData.account" placeholder="请选择账户">
+                <el-select filterable allow-create multiple v-model="uploadData.account" placeholder="请选择账户">
                   <el-option v-for="item in baseData.accounts" :key="item.value" :label="item.label" :value="item.value">
                   </el-option>
                 </el-select>
@@ -79,9 +79,7 @@
 export default {
   data() {
     return {
-      options: [
-        
-      ],
+      options: [],
       value: "",
       addvalue: "",
       tableData: [],
@@ -90,8 +88,10 @@ export default {
       addData: [{}],
       companyList: [],
       uploadData: {
+        code: "",
+        broker: "",
+        account: "",
         handNumber: "",
-        code: ""
       },
       baseData:{
         brokers:[],
