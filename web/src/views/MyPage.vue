@@ -42,7 +42,7 @@
             <el-form inline>
               <el-form-item label='申购公司'>
                 <el-select v-model="uploadData.code" placeholder="请选择公司">
-                  <el-option v-for="item in baseData.companyList" :key="item.value" :label="item.label" :value="item.value">
+                  <el-option v-for="(item,index) in baseData.companyList" :key="index" :label="item.label" :value="item.value">
                   </el-option>
                 </el-select>
               </el-form-item>
@@ -162,23 +162,25 @@ export default {
       let target = 0;
       this.arr = [];
       this.tableData.forEach((ele, index) => {
-        if (!index) {
+        if (!index) { //如果是第0项
           this.arr.push(1);
-        } else if (
+        } else if (   //如果后一项和前一项是一个券商
           this.tableData[index - 1].broker == this.tableData[index].broker
         ) {
           !this.arr[target] && this.arr[target]++;
           this.arr[target]++;
           this.arr.push(0);
-        } else {
+        } else {      //如果不是一个券商
           target = index;
-          this.arr.push(0);
+          this.arr.push(1);
         }
       });
     },
 
     objectSpanMethod({ row, column, rowIndex, columnIndex }) {
       if (columnIndex === 0) {
+        console.log(this.arr);
+        
         if (this.arr[rowIndex]) {
           return {
             rowspan: this.arr[rowIndex],

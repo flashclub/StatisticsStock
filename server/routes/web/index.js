@@ -3,6 +3,7 @@ module.exports = app => {
   const router = express.Router();
   const assert = require("http-assert");
   require("./loginOrOut")(app);
+  require("./subscribeinfo")(app);
   const StockData = require("../../models/web/StockData");
 
   //  登录校验中间件
@@ -64,7 +65,7 @@ module.exports = app => {
         });
       }
     }
-    
+
     let accounts = []; //账户信息
 
     const sendData = {
@@ -73,49 +74,31 @@ module.exports = app => {
     };
     res.send(sendData);
   });
-  router.post("/subscribeinfo", async (req, res) => {
-    //  上传用户申购信息
-    let insertData = {
-      username: req.user.username,
-      data: []
-    };
-    let userData = {
-      code: req.body.code,
-      broker: req.body.broker,
-      account: req.body.account,
-      handNumber: req.body.handNumber
-    };
+  //  添加时 用户基础信息
+  router.post("/basedata", async (req, res) => {
+    console.log(req.user.username);
 
-    // return;
-    // insertData.data.push(req.body);
-    // const baseData = await StockData.findOne({ code: req.body.code });
-    // let base2 = JSON.parse(JSON.stringify(baseData));
-    // let newObj = Object.assign(userData, base2);
-    // delete newObj._id;
-    insertData.data.push(userData);
-
-    const model = await req.model.findOne({ username: req.user.username });
-    if (model) {
-      let finalData = model.data;
-      finalData.push(insertData.data);
-      const models = await req.model.findOneAndUpdate(
-        { username: req.user.username },
-        { $set: { data: finalData } },
-        { new: true }
-      );
-    } else {
-      // insertData.data.push(newObj);
-      const models = await req.model.create(insertData);
+    const model = await req.model.find();
+    let companyList = [];
+    for (const key in model) {
+      if (model.hasOwnProperty(key)) {
+        const ele = model[key];
+        companyList.push({
+          value: ele.code,
+          label: ele.company
+        });
+      }
     }
 
-    // const model = await req.model.create(insertData);
+    let accounts = []; //账户信息
+
     const sendData = {
       message: "success",
-      data: [],
-      status: 1
+      data: { companyList, brokers, accounts }
     };
     res.send(sendData);
   });
+
   //  用户录入的所有信息
   router.get("/userinfo", async (req, res) => {
     const model = await req.model.findOne({ username: req.user.username });
