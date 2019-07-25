@@ -6,7 +6,6 @@ import requests
 
 from pymongo import MongoClient
 client = MongoClient()
-# database = client['Chapter6']
 database = client['Statisticsstock']
 collection = database['stockdatas']
 
