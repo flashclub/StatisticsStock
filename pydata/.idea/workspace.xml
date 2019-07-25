@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04234fb5-76c6-4fc4-b3f1-ce5c124d2051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pydata.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pydata.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/plugins/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/plugins/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/getdata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +16,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="270">
+              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
               <folding>
-                <element signature="e#0#16#0" expanded="true" />
+                <element signature="e#15#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,6 +32,9 @@
       <find>ipo-scheduled-items</find>
       <find>1912</find>
       <find>str</find>
+      <find>上市日期</find>
+      <find>secRight</find>
+      <find>getdata</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -46,22 +47,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/pydata.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="158" />
-    <option name="y" value="147" />
-    <option name="width" value="1188" />
-    <option name="height" value="659" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1916" />
+    <option name="y" value="671" />
+    <option name="width" value="1093" />
+    <option name="height" value="955" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -69,7 +59,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -81,6 +70,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,21 +149,24 @@
       <workItem from="1562118338957" duration="1987000" />
       <workItem from="1562122511525" duration="733000" />
       <workItem from="1562136237918" duration="9025000" />
+      <workItem from="1563875284021" duration="698000" />
+      <workItem from="1564022074909" duration="17494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15507000" />
+    <option name="totallyTimeSpent" value="33699000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="158" y="147" width="1188" height="659" extended-state="0" />
+    <frame x="1916" y="671" width="1093" height="955" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.165" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17953669" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40564373" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27854455" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39858907" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -198,14 +191,15 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1563875385479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pydata$st.coverage" NAME="st Coverage Results" MODIFIED="1564046079100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/getdata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="270">
+          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#15#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
