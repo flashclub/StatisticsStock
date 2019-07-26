@@ -54,5 +54,7 @@ if __name__ == "__main__":
                          'marginAnnualInterest', 'calculator', 'marginAmount', 'sponsor', 'report', 'remarks','others'])
 
     print(halfNewData3.return_data())
-
-
+    halfNew4 = DownloadDB('http://ft.iqdii.com/views/eipo/eIPO_pc.html?style=w')
+    halfNewData4 = GetInfo(halfNew4.selector(),'//*[@id="tbstockData"]/tbody/tr',
+                           ['tujing','shangxian','xiaxian','peishoujia','kaishi','jieshu','anpan','shangshi','gongbu'])
+    print(halfNewData4.return_data())
