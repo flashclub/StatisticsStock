@@ -38,21 +38,21 @@ class GetInfo(object):
         return list
 
 if __name__ == "__main__":
-    halfNew1 = DownloadDB('https://www.aastocks.com/sc/ipo/listedipo.aspx')
-    halfNewData1 = GetInfo(halfNew1.selector(),'//*[@class="secRight"]/table/tr[@class="DR"]',
-                           ['listingDate', 'code', 'company', 'industry', 'prospectusPrice', 'marginAmount',
-                         'handNumberForOne', 'oneHandSignRate', 'firstDayGain', 'nowPrice', 'totalPrice'])
-    halfNewData2 = GetInfo(halfNew1.selector(), '//*[@class="secRight"]/table/tr[@class="ADR"]',
-                           ['listingDate', 'code', 'company', 'industry', 'prospectusPrice', 'marginAmount',
-                            'handNumberForOne', 'oneHandSignRate', 'firstDayGain', 'nowPrice', 'totalPrice'])
-    print(halfNewData1.return_data())
-    print(halfNewData2.return_data())
-    #
+    # halfNew1 = DownloadDB('https://www.aastocks.com/sc/ipo/listedipo.aspx')
+    # halfNewData1 = GetInfo(halfNew1.selector(),'//*[@class="secRight"]/table/tr[@class="DR"]',
+    #                        ['listingDate', 'code', 'company', 'industry', 'prospectusPrice', 'marginAmount',
+    #                      'handNumberForOne', 'oneHandSignRate', 'firstDayGain', 'nowPrice', 'totalPrice'])
+    # halfNewData2 = GetInfo(halfNew1.selector(), '//*[@class="secRight"]/table/tr[@class="ADR"]',
+    #                        ['listingDate', 'code', 'company', 'industry', 'prospectusPrice', 'marginAmount',
+    #                         'handNumberForOne', 'oneHandSignRate', 'firstDayGain', 'nowPrice', 'totalPrice'])
+    # print(halfNewData1.return_data())
+    # print(halfNewData2.return_data())
     halfNew3 = DownloadDB('http://www.poems.com.hk/zh-cn/product-and-service/initial-public-offerings/ipo-info/')
     halfNewData3 = GetInfo(halfNew3.selector(),'//*[@id="Scheduled"]/div[3]/table/tbody/tr',
                         ['code', 'company', 'prospectusPrice', 'listingDate', 'firstMarginDeadline', 'publicDeadline',
                          'marginAnnualInterest', 'calculator', 'marginAmount', 'sponsor', 'report', 'remarks','others'])
 
-    print(halfNewData3.return_data())
+    print('辉立数据请求完成')
+    collection.insert(halfNewData3.return_data())
 
 
